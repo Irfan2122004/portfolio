@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f1">
+  <meta name="description" content="Portfolio of Mohammed Irfan Ulla Sharif, Java Full Stack Developer in Hyderabad, India.">
+  <title>Mohammed Irfan Ulla Sharif | Java Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f5f1;
+      --ink: #182620;
+      --muted: #64716b;
+      --line: #d9dfd9;
+      --blue: #a9d9f2;
+      --orange: #e9714b;
+      --white: #fff;
+      --mono: "DM Mono", Consolas, monospace;
+      --sans: "Space Grotesk", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+    .shell { width: min(1120px, calc(100% - 56px)); margin: 0 auto; }
+    .topbar {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark, .eyebrow, .section-index, .tag, .meta, .availability {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+    .wordmark { font-weight: 500; text-decoration: none; }
+    .nav { display: flex; gap: 28px; }
+    .nav a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    .nav a:hover { color: var(--ink); }
+    .hero {
+      min-height: 490px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: 56px;
+      align-items: center;
+      padding: 68px 0 72px;
+    }
+    .eyebrow { color: var(--muted); text-transform: uppercase; }
+    h1 {
+      max-width: 730px;
+      margin: 18px 0 16px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: .99;
+      font-weight: 600;
+    }
+    h1 span { color: #34738e; }
+    .role { margin: 0; font-size: 20px; font-weight: 500; }
+    .intro { max-width: 610px; margin: 18px 0 0; color: var(--muted); font-size: 16px; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #2d4339; }
+    .button.secondary { background: transparent; color: var(--ink); }
+    .button.secondary:hover { background: var(--blue); }
+    .button svg { width: 15px; height: 15px; }
+    .profile-mark {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      min-height: 0;
+      overflow: hidden;
+      background: #d9dfe2;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 40px rgba(24, 38, 32, .12);
+    }
+    .profile-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 46%;
+      transform: scale(1.16);
+      transform-origin: center 58%;
+      filter: contrast(1.04) saturate(1.06);
+    }
+    .mark-caption { position: absolute; right: 12px; bottom: 12px; padding: 7px 9px; background: rgba(24, 38, 32, .9); color: var(--white); }
+    .availability { position: absolute; z-index: 1; top: 12px; left: 12px; display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(255, 255, 255, .92); }
+    .availability::before { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); content: ""; }
+    .contact-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-item { padding: 18px 20px 18px 0; }
+    .contact-item + .contact-item { padding-left: 24px; border-left: 1px solid var(--line); }
+    .contact-item .meta { display: block; margin-bottom: 5px; color: var(--muted); }
+    .contact-item a, .contact-item span.value { font-size: 14px; text-decoration: none; overflow-wrap: anywhere; }
+    .contact-item a:hover { text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 4px; }
+    .section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 190px 1fr; gap: 36px; margin-bottom: 38px; }
+    .section-index { color: var(--orange); padding-top: 8px; }
+    h2 { margin: 0; font-size: 34px; line-height: 1.1; font-weight: 500; }
+    .summary { max-width: 730px; margin: 0; color: #48564f; font-size: 18px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .skill-group { padding: 22px 24px 22px 0; border-bottom: 1px solid var(--line); }
+    .skill-group:nth-child(3n + 2), .skill-group:nth-child(3n) { padding-left: 24px; border-left: 1px solid var(--line); }
+    .skill-group h3 { margin: 0 0 10px; font-size: 15px; font-weight: 600; }
+    .skill-group p { margin: 0; color: var(--muted); font-size: 14px; }
+    .project {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 36px;
+      padding: 28px 0 34px;
+      border-top: 1px solid var(--line);
+    }
+    .project:last-child { border-bottom: 1px solid var(--line); }
+    .project-date { color: var(--muted); }
+    .project-title-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; }
+    h3.project-title { margin: 0; font-size: 23px; font-weight: 500; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .tag { padding: 5px 9px; background: #e2eff4; color: #31596a; font-size: 11px; }
+    .project ul { display: grid; gap: 8px; margin: 20px 0 0; padding-left: 18px; color: #48564f; font-size: 14px; }
+    .project li::marker { color: var(--orange); }
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 36px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-date { color: var(--muted); }
+    .timeline h3 { margin: 0; font-size: 18px; font-weight: 500; }
+    .timeline .place { margin: 4px 0 9px; color: #34738e; font-size: 14px; }
+    .timeline p { max-width: 720px; margin: 0; color: var(--muted); font-size: 14px; }
+    .education-note { margin-top: 10px !important; font-size: 13px !important; }
+    .languages { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .language { padding: 8px 12px; border: 1px solid var(--line); font-size: 13px; }
+    .footer { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0 30px; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+    .footer a { color: var(--ink); text-decoration: none; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 36px, 560px); }
+      .topbar { height: 62px; }
+      .nav { gap: 14px; }
+      .nav a { font-size: 12px; }
+      .hero { min-height: 0; grid-template-columns: 1fr; gap: 30px; padding: 58px 0 44px; }
+      h1 { max-width: 560px; font-size: clamp(43px, 12vw, 68px); }
+      .profile-mark { min-height: 230px; }
+      .contact-strip { grid-template-columns: 1fr; }
+      .contact-item, .contact-item + .contact-item { padding: 13px 0; border-left: 0; }
+      .contact-item + .contact-item { border-top: 1px solid var(--line); }
+      .section { padding: 54px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 10px; margin-bottom: 26px; }
+      .section-index { padding: 0; }
+      h2 { font-size: 30px; }
+      .summary { font-size: 16px; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .skill-group { padding: 18px 14px 18px 0; }
+      .skill-group:nth-child(3n + 2), .skill-group:nth-child(3n) { padding-left: 0; border-left: 0; }
+      .skill-group:nth-child(even) { padding-left: 14px; border-left: 1px solid var(--line); }
+      .project, .timeline-row { grid-template-columns: 1fr; gap: 8px; }
+      .project { padding: 22px 0 28px; }
+      .timeline-row { padding: 20px 0; }
+      .footer { flex-direction: column; gap: 5px; }
+    }
+    @media (max-width: 390px) {
+      .shell { width: calc(100% - 28px); }
+      .wordmark { font-size: 11px; }
+      .nav { gap: 10px; }
+      .nav a { font-size: 11px; }
+      .hero-links { gap: 8px; }
+      .button { padding: 0 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="wordmark" href="#top">IRFAN SHARIF / PORTFOLIO</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+    </nav>
+  </header>
+
+  <main id="top" class="shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow">Hyderabad, Telangana, India</div>
+        <h1 id="page-title">Mohammed Irfan <span>Ulla Sharif</span></h1>
+        <p class="role">Java Full Stack Developer</p>
+        <p class="intro">I build reliable web applications from database to interface, with a focus on Java, Spring Boot and thoughtful backend design.</p>
+        <div class="hero-links">
+          <a class="button" href="mailto:mohammedirfan2122004@gmail.com">
+            Get in touch
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a class="button secondary" href="https://github.com/Irfan2122004" target="_blank" rel="noreferrer">View GitHub</a>
+        </div>
+      </div>
+      <div class="profile-mark" aria-label="Irfan Sharif monogram">
+        <span class="availability">OPEN TO OPPORTUNITIES</span>
+        <img src="photo.jpg" alt="Portrait of Mohammed Irfan Ulla Sharif">
+        <span class="mark-caption eyebrow">JAVA / FULL STACK</span>
+      </div>
+    </section>
+
+    <section class="contact-strip" aria-label="Contact links">
+      <div class="contact-item">
+        <span class="meta">EMAIL</span>
+        <a href="mailto:mohammedirfan2122004@gmail.com">mohammedirfan2122004@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="meta">LINKEDIN</span>
+        <a href="https://www.linkedin.com/in/mohammed-irfan-ulla-sharif" target="_blank" rel="noreferrer">mohammed-irfan-ulla-sharif</a>
+      </div>
+      <div class="contact-item">
+        <span class="meta">GITHUB</span>
+        <a href="https://github.com/Irfan2122004" target="_blank" rel="noreferrer">github.com/Irfan2122004</a>
+      </div>
+      <div class="contact-item">
+        <span class="meta">PHONE</span>
+        <a href="tel:+919392853093">+91 93928 53093</a>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-head">
+        <span class="section-index">01 / ABOUT</span>
+        <div>
+          <h2>Engineering with purpose.</h2>
+          <p class="summary">Final-year B.Tech student in Computer Science Engineering (AI &amp; ML), with hands-on experience building enterprise-grade applications using Java, Spring Boot, Hibernate/JPA, REST APIs and MySQL. Interested in designing end-to-end solutions, improving backend performance and delivering production-ready software with JWT-based security.</p>
+        </div>
+      </div>
+      <div class="skills-grid" aria-label="Technical skills">
+        <div class="skill-group"><h3>Backend</h3><p>Java (Core &amp; Advanced), Spring Boot, Spring MVC, Hibernate, JPA, RESTful APIs, JWT Authentication</p></div>
+        <div class="skill-group"><h3>Frontend</h3><p>HTML, CSS, JavaScript</p></div>
+        <div class="skill-group"><h3>Database</h3><p>MySQL, SQL, DBMS, Normalization, Indexing, Transactions</p></div>
+        <div class="skill-group"><h3>Tools</h3><p>Git, GitHub, Maven, IntelliJ IDEA, Eclipse, VS Code</p></div>
+        <div class="skill-group"><h3>Core Concepts</h3><p>Data Structures &amp; Algorithms, OOP, System Design, Operating Systems, Computer Networks</p></div>
+        <div class="skill-group"><h3>AI / ML</h3><p>Machine Learning, Deep Learning, TensorFlow, Keras, scikit-learn, Python</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head">
+        <span class="section-index">02 / SELECTED WORK</span>
+        <div><h2>Projects</h2></div>
+      </div>
+      <article class="project">
+        <div class="project-date meta">2025 / ACADEMIC</div>
+        <div>
+          <div class="project-title-row"><h3 class="project-title">Academic Sphere</h3><span class="meta">SMART ACADEMIC MANAGEMENT SYSTEM</span></div>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Hibernate / JPA</span><span class="tag">MySQL</span><span class="tag">REST API</span><span class="tag">JWT</span></div>
+          <ul>
+            <li>Developed a multi-role academic management portal for administrators, faculty and students, with JWT-based role access control.</li>
+            <li>Designed and exposed 20+ REST endpoints with CRUD operations and a normalized (3NF) database schema.</li>
+            <li>Built an exam seating optimization algorithm estimated to reduce administrative effort by 80%.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project">
+        <div class="project-date meta">2024 / AI &amp; SIGNAL PROCESSING</div>
+        <div>
+          <div class="project-title-row"><h3 class="project-title">Heart Failure Detection via Heart Sounds</h3></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">CNN</span><span class="tag">Random Forest</span><span class="tag">Digital Signal Processing</span></div>
+          <ul>
+            <li>Built a hybrid CNN and Random Forest model to detect chronic heart failure from phonocardiogram (PCG) audio signals.</li>
+            <li>Created a spectrogram-based feature extraction pipeline and evaluated results using precision, recall and F1-score.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-head">
+        <span class="section-index">03 / BACKGROUND</span>
+        <div><h2>Experience &amp; training</h2></div>
+      </div>
+      <div class="timeline">
+        <article class="timeline-row">
+          <div class="timeline-date meta">2026 / 6 MONTHS</div>
+          <div><h3>Java Full Stack Development Training</h3><p class="place">Naresh IT Institute · Hyderabad</p><p>Intensive training in Core and Advanced Java, Spring Boot, Hibernate, REST APIs, MySQL, HTML, CSS and JavaScript, with hands-on project delivery and code reviews.</p></div>
+        </article>
+        <article class="timeline-row">
+          <div class="timeline-date meta">2022 — 2023</div>
+          <div><h3>Intern, Electronics and Instrumentation</h3><p class="place">CITD · Hyderabad</p><p>Gained practical exposure to industrial electronics systems, tool design workflows and hardware debugging.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-head">
+        <span class="section-index">04 / EDUCATION</span>
+        <div><h2>Education</h2></div>
+      </div>
+      <div class="timeline">
+        <article class="timeline-row">
+          <div class="timeline-date meta">2023 — 2026</div>
+          <div><h3>B.Tech, Computer Science Engineering (AI &amp; ML)</h3><p class="place">Malla Reddy College of Engineering · Hyderabad</p><p class="education-note">Coursework: Data Structures &amp; Algorithms, OOP in Java, DBMS, Machine Learning, Deep Learning, Computer Networks, Operating Systems</p></div>
+        </article>
+        <article class="timeline-row">
+          <div class="timeline-date meta">2020 — 2023</div>
+          <div><h3>Diploma, Electronics and Instrumentation Engineering</h3><p class="place">Government Institute of Electronics · Hyderabad</p></div>
+        </article>
+      </div>
+      <div class="languages" aria-label="Languages">
+        <span class="language">English · Fluent</span>
+        <span class="language">Telugu · Native</span>
+        <span class="language">Hindi · Conversational</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <span>MOHAMMED IRFAN ULLA SHARIF · HYDERABAD, INDIA</span>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+</body>
+</html>
